@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - 5001:5000
+    volumes:
+      - ./api:/api
+    container_name: red_dead_api
+    restart: on-failure
