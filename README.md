@@ -13,7 +13,7 @@
 
 ## Sobre
 
-Projeto de Grafos 2 para mostrar a menor rota entre as cidades do jogo Red Dead Redemption II, utilizando grafo, BFS e busca por pesos.
+Projeto de Grafos 2 para mostrar a menor rota entre as cidades do jogo Red Dead Redemption II, utilizando grafo, BFS e busca por pesos. Essa é uma evolução do projeto de Grafos 1.
 
 ## Apresentação
 
