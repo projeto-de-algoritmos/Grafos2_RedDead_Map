@@ -4,17 +4,38 @@ class GraphModel():
         """
         Init graph as a dictionary
 
-        edges = { "A": ["B", "C"], "B": ["A"] }
+        edges = {
+          "A": [("B", dist_AB),("C", dist_AC)],]
+          "B": [("A", dist_AB)]
+        }
         """
         self.graph = dict
         self.add_edges(edges)
+        self.add_adjacent_nodes(edges)
     
     def add_edges(self, edges: dict) -> None:
         """
-        Add edges to graph as dictionary of lists
+        Add edges to graph as dictionary of lists        
         """
         self.graph = edges
+    
+    def add_adjacent_nodes(self, edges: dict) -> None:
+        """
+        Create a dict with adjacent_nodes
 
+        adjacent_nodes = {
+          "A" = { "B": dist_AB, "C": dist_AC },
+          "B" = { "C": dist_BC }
+        }
+        """
+        self.adjacent_nodes = dict()
+        
+        for key in edges:
+          self.adjacent_nodes[key] = dict()
+
+          for x in edges[key]:
+            self.adjacent_nodes[key][x[0]] = x[1]
+            
     def get_edges(self) -> None:
         """
         Returns all graph's edges
