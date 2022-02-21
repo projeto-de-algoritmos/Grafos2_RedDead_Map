@@ -59,32 +59,32 @@ class GraphModel():
         """
         return self.graph
 
-    def find_shortest_path(self, start: str, end: str, path=[]) -> list:
+    def find_shortest_path(self, start: str, end: str) -> list:
         """
-        Find shortest path using BFS seach on the graph
+        Find shortest path using Dijkstra algorithm
         """
-        explored = list()
-        queue = list()
-        queue.append([start])
+        path = [end] # path will be backwards in first moment
+        total_dist = 0 # total distance traveled
+        dijkstra_result = self.dijkstra(start=start)
 
-        if start == end:
-            return queue # start point is equal to end point
+        print(dijkstra_result)
+
+        dist, node = dijkstra_result.get(end) # init path by end node
+
+        print(dist, node)
+
+        # path finder (end node to start node)
+        while node != start:
+          path.append(node)
+          total_dist += dist
+          dist, node = dijkstra_result.get(node)
         
-        while queue:
-            path = queue.pop(0)
-            node = path[-1]
+        path.append(start) # add start node at the end
+        path.reverse() # correct path to be start point to end point
 
-            if node not in explored:
-                neighbors = self.graph.get(node, [])
-                for neighbour in neighbors:
-                    new_path = list(path)
-                    new_path.append(neighbour)
-                    queue.append(new_path)
+        print(path, total_dist)
+        return (path, total_dist)
 
-                    if neighbour == end:
-                        return new_path # returns shortest path
-
-        return False # there is no possible path
 
     def dijkstra(self, start):
         """
