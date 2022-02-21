@@ -1,3 +1,5 @@
+from math import inf
+
 class GraphModel():
     
     def __init__(self, edges: dict) -> None: 
@@ -35,7 +37,7 @@ class GraphModel():
 
           for x in edges[key]:
             self.adjacent_nodes[key][x[0]] = x[1]
-            
+
     def get_edges(self) -> None:
         """
         Returns all graph's edges
@@ -83,3 +85,36 @@ class GraphModel():
                         return new_path # returns shortest path
 
         return False # there is no possible path
+
+    def dijkstra(self, start):
+        """
+        Dijkstra algorithm
+
+        return = {
+          node_A: (min_dist, min_neighbor),
+          node_B: (min_dist, min_neighbor)
+        }
+        """
+        nodes = self.get_nodes()
+        distances = {}
+
+        # init distances with infinite and 0 to start point
+        for node_A in self.adjacent_nodes:
+          for node_B in self.adjacent_nodes[node_A]:
+            distances[node_A] = (inf, None)
+            distances[node_B] = (inf, None)
+        distances[start] = (0, start)
+
+        # init not visited nodes list
+        temporary_nodes = [n for n in nodes]
+
+        # while temporary nodes is not empty
+        while len(temporary_nodes) > 0:
+            upper_bounds = {n: distances[n] for n in temporary_nodes}
+            lower_bound = min(upper_bounds, key=lambda v: upper_bounds.get(v)[0])
+            temporary_nodes.remove(lower_bound)
+            for node, distance in self.adjacent_nodes[lower_bound].items():
+                new_distance = (distances[lower_bound][0] + distance, lower_bound)
+                distances[node] = min(distances[node], new_distance, key=lambda v:v[0])
+
+        return distances
