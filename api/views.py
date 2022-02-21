@@ -6,40 +6,40 @@ app = server.app
 
 cities = {
         "Blackwater": [
-            "Strawberry",
-            "Valentine",
-            "Armadillo"
+            ("Strawberry", 5),
+            ("Valentine", 10),
+            ("Armadillo", 15)
         ],
         "Valentine": [
-            "Rhodes",
-            "Blackwater",
-            "Mount Hagen"
+            ("Rhodes", 5),
+            ("Blackwater", 10),
+            ("Mount Hagen", 15)
         ],
         "Annesburg": [
-            "Van Horn",
-            "Saint Denis",
-            "Rhodes"
+            ("Van Horn", 5),
+            ("Saint Denis", 10),
+            ("Rhodes", 15)
         ],
-        "Van Horn": ["Annesburg"],
+        "Van Horn": [("Annesburg", 5)],
         "Saint Denis": [
-            "Annesburg",
-            "Rhodes"
+            ("Annesburg", 5),
+            ("Rhodes", 10)
         ],
-        "Mount Hagen": ["Valentine"],
+        "Mount Hagen": [("Valentine", 5)],
         "Rhodes": [
-            "Valentine",
-            "Saint Denis",
-            "Annesburg"
+            ("Valentine", 5),
+            ("Saint Denis", 10),
+            ("Annesburg", 15)
         ],
         "Strawberry": [
-            "Blackwater",
-            "Armadillo"
+            ("Blackwater", 5),
+            ("Armadillo", 10)
         ],
-        "Tumbleweed": ["Armadillo"],
+        "Tumbleweed": [("Armadillo", 5)],
         "Armadillo": [
-            "Tumbleweed",
-            "Strawberry",
-            "Blackwater"
+            ("Tumbleweed", 5),
+            ("Strawberry", 10),
+            ("Blackwater", 15)
         ]
 }
 
