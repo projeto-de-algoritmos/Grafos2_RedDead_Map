@@ -67,22 +67,16 @@ class GraphModel():
         total_dist = 0 # total distance traveled
         dijkstra_result = self.dijkstra(start=start)
 
-        print(dijkstra_result)
-
-        dist, node = dijkstra_result.get(end) # init path by end node
-
-        print(dist, node)
+        total_dist, node = dijkstra_result.get(end) # init path and set total distance by end point
 
         # path finder (end node to start node)
         while node != start:
           path.append(node)
-          total_dist += dist
           dist, node = dijkstra_result.get(node)
         
         path.append(start) # add start node at the end
         path.reverse() # correct path to be start point to end point
 
-        print(path, total_dist)
         return (path, total_dist)
 
 
