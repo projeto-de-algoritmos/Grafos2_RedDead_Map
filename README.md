@@ -72,4 +72,4 @@ E acessar o endereço `http://localhost:3000` no seu navegador.
 
 ## Uso 
 
-O mapa do Game estará mostrado com as rotas e ligações entre as cidades. Basta escolher a cidade de origem e a cidade de destino para que a API retorne o caminho mais otimizado a ser percorrido.
+O mapa do Game estará mostrado com as rotas e ligações entre as cidades. Basta escolher a cidade de origem e a cidade de destino para que a API retorne o caminho mais otimizado a ser percorrido com a menor distância em metros.
