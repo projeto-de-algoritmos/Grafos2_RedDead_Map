@@ -72,7 +72,8 @@ class RedDeadCitiesView():
         try:
             start = body.get("start")
             end = body.get("end")
-            best_way = graph.find_shortest_path(start=start, end=end)
+            best_way, total_distance = graph.find_shortest_path(start=start, end=end)
+            print(best_way, total_distance)
         except KeyError:
             return json.dumps(error_response), 400
         except Exception:
@@ -82,7 +83,12 @@ class RedDeadCitiesView():
             }
             return json.dumps(response), 400
 
-        return json.dumps(best_way), 200
+        response = {
+          "path": best_way,
+          "distance": total_distance
+        }
+        
+        return json.dumps(response), 200
 
     @app.route('/cities', methods=['GET'])
     def get_cities() -> dict:
