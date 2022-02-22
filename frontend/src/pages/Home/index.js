@@ -60,6 +60,7 @@ const Home = () => {
   const [startCity, setStartCity] = useState('');
   const [endCity, setEndCity] = useState('');
   const [path, setPath] = useState();
+  const [distance, setDistance] = useState();
   const [isOpen, setIsOpen] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -109,8 +110,11 @@ const Home = () => {
           start: startCity,
           end: endCity
       });
+
+      const { path, distance } = data;
       
-      setPath(data);
+      setPath(path);
+      setDistance(distance);
       setIsOpen(true);
   
       return data;
@@ -159,7 +163,7 @@ const Home = () => {
           <Modal isOpen={isOpen} onRequestClose={handleCloseModal} style={customStyles}>
               <PathSection>
               {path && (
-                  <List items={path} title='Melhor Rota' imageSrc={horseMan} />
+                  <List items={path} distance={distance} title='Melhor Rota' imageSrc={horseMan} />
                   )}
               </PathSection>
               <Button text='Fechar' onClick={handleCloseModal} />
