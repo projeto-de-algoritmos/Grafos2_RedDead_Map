@@ -36,10 +36,21 @@ export const ListContainer = styled.div`
 `;
 
 export const ItemsContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const ItemsWrapper = styled.ul`
 `;
 
 export const Item = styled.li`
   margin: 7px 0 7px 0;
+`;
+
+export const DistanceText = styled.p`
+  margin-top: 20px;
+  color: ${colors.red};
 `;
 
 export const ImageContainer = styled.div`
