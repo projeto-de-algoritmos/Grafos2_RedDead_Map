@@ -17,7 +17,7 @@ Projeto de Grafos 2 para mostrar a menor rota entre as cidades do jogo Red Dead 
 
 ## Apresentação
 
-A apresentação do projeto pode ser vista no seguinte [link](https://youtu.be/MX91DB4iMIU).
+A apresentação do projeto pode ser vista no seguinte [link](https://youtu.be/xHXqPqJrPX8).
 
 ## Screenshots
 
